@@ -1,0 +1,25 @@
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"] + label {
+    cursor: pointer;
+    padding-left: 0;
+}
+input[type="checkbox"] + label::before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+	border: 2px solid black;
+    margin: 0 5px 0 0;
+    background: darkturquoise;
+}
+input[type="checkbox"]:checked + label::before {
+	content: "\2713";
+	text-align: center;
+    line-height: 15px;
+	color: darkslategray;
+}
+ol li ul li{
+	font-size: 12px;
+}
