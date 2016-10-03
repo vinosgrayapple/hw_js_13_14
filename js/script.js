@@ -25,7 +25,10 @@ var answersCorrected = [];
 var answersC = [];
 var rightAnswers = 0;
 $("#lodash-box").append(tmpl());
+/* ========jQuery=======  */ 
 $(function () {
+/* begin hendler LI */ 
+
 	$('li>label').on('click', function () {
 
 		var li = $(this).parent('li');
@@ -42,17 +45,21 @@ $(function () {
 
 	});
 
-		$('button').on('click', function () {
+/* end hendler LI */ 
+
+		$('#button').on('click', function () {
+
 			if ($('input:checked').length!=questions.length) {
 				alert("\n\nВы ответили на " + $('input:checked').length + " из " + questions.length + "  вопросов! \n\n Закончите пожалуйста!\n\n");
+				return;
 			}
 
 
-				answersC = $('input:checked').map(function () {
+			answersC = $('input:checked').map(function () {
 					return parseInt($(this).attr('id').split('_')[2]);
 
 				}).get();
-
+			console.log(answersC);
 				for (var indx = 0; indx < questions.length; indx++){
 					answersCorrected.push(questions[indx].correct[0]);
 				};
@@ -69,7 +76,7 @@ $(function () {
 					$('#overlay-body').append("<h3 style='color:green;'>Поздравляем Вы правильно ответили на все вопросы</h3>");
 
 				} else {
-						$('#overlay-body').append("<h4 style='color:red;'>\n\nВы ответили неправильно на " +  (questions.length - rightAnswers) + " из " + questions.length + "  вопросов! \n\n</h4>");
+						$('#overlay-body').append("<h4 style='color:firebrick;'>\n\nВы ответили правильно на " +  (rightAnswers) + " из " + questions.length + "  вопросов! \n\n<br><br> Это " +(rightAnswers/questions.length*100).toFixed(1) + " % правильных ответов!</h4>");
 
 				}
 
@@ -84,7 +91,9 @@ $(function () {
 						$('input').prop('checked',false);
 						$('li').removeClass('list-group-item-success').addClass('list-group-item-warning');
 						rightAnswers=0;
-						answersC=0
+						answersC=[];
+						answersCorrected=[];
+						$('#overlay-body').html('');
 
 					})});
 });
