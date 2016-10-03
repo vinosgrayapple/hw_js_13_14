@@ -1,11 +1,22 @@
 'use strict';
 var questions;
 var strQuestions;
-var xhr = new XMLHttpRequest();
+
+/*====get JSON from file======*/
+
+var xhr;
+if (window.XMLHttpRequest) {
+
+	xhr = new XMLHttpRequest();
+} else {
+	xhr = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
 xhr.open('GET', 'js/questions.json', true);
 xhr.ontimeout = function() {
   alert( 'Извините, запрос превысил максимальное время' );
 };
+
 
 xhr.onreadystatechange = function() {
 	if (xhr.readyState != 4) return;
@@ -15,18 +26,25 @@ if (xhr.status != 200) {
 } else { 
 	localStorage.setItem('questions',this.responseText);
 };}
-xhr.send();
+
+xhr.send();/*==== end JSON from file======*/
 
 
 questions = JSON.parse(localStorage.getItem("questions"));
-// console.log(questions);
+var tmplSelect = _.template($("#box-slect").html());
+$('#qstn_prepare').append(tmplSelect());
+$(function () {
+
+$('#slect-trigger').on('change', function() {
+questions = questions.slice(0,$(this).val())
+$(this).parent().hide();
 var tmpl = _.template($("#qstns").html());
 var answersCorrected = [];
 var answersC = [];
 var rightAnswers = 0;
 $("#lodash-box").append(tmpl());
 /* ========jQuery=======  */ 
-$(function () {
+
 /* begin hendler LI */ 
 
 	$('li>label').on('click', function () {
@@ -97,4 +115,7 @@ $(function () {
 
 					})});
 });
+
+});
+
 });

@@ -29,6 +29,22 @@ background-position: 0 -51px;
 ul{
   list-style:none;
 }
+#qstn_prepare select {
+	width: 85px;
+	margin: 20px auto;
+	text-align: center;
+}
+#qstn_prepare {
+	font-weight: bold;
+	padding: 10px;
+	margin: 20px 20%;
+	-webkit-border-radius: 10px;
+	        border-radius: 10px;
+}
+#btn-start {
+	margin: 20px 0;
+}
+
 .center-block{
 
   padding-left: 10%;
