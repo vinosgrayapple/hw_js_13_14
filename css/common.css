@@ -11,7 +11,7 @@ label:before {
 	display: inline-block;
   width: 17px;
 	height: 17px;
-	background: url(http://i.imgur.com/OKNUXqi.png);
+	background: url(https://i.imgur.com/OKNUXqi.png);
 	position: relative;
 	top: 3px;
 	margin-right:  7px;
@@ -93,7 +93,7 @@ h4.q{
 #btn-overlay{
 	position: absolute;
 	bottom: 15px;
-	/*text-align: center;*/
+	
 }
 #overlay {
 	z-index:3;
