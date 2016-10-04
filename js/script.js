@@ -77,7 +77,7 @@ $("#lodash-box").append(tmpl());
 					return parseInt($(this).attr('id').split('_')[2]);
 
 				}).get();
-			console.log(answersC);
+// 			console.log(answersC);
 				for (var indx = 0; indx < questions.length; indx++){
 					answersCorrected.push(questions[indx].correct[0]);
 				};
