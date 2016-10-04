@@ -2,32 +2,12 @@
 var questions;
 var strQuestions;
 
-/*====get JSON from file======*/
+/*====get_JSON from file======*/
 
-var xhr;
-if (window.XMLHttpRequest) {
-
-	xhr = new XMLHttpRequest();
-} else {
-	xhr = new ActiveXObject("Microsoft.XMLHTTP");
+function getJSON(questions){
+	localStorage.setItem('questions',questions);
 }
-
-xhr.open('GET', 'js/questions.json', true);
-xhr.ontimeout = function() {
-  alert( 'Извините, запрос превысил максимальное время' );
-};
-
-
-xhr.onreadystatechange = function() {
-	if (xhr.readyState != 4) return;
-
-if (xhr.status != 200) {
-  alert( this.status + ': ' + this.statusText );
-} else { 
-	localStorage.setItem('questions',this.responseText);
-};}
-
-xhr.send();/*==== end JSON from file======*/
+/*============================*/ 
 
 
 questions = JSON.parse(localStorage.getItem("questions"));
