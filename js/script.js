@@ -2,13 +2,12 @@
 var questions;
 var strQuestions;
 
-/*====get_JSON from file======*/
+
 
 function getJSON2localStorage(qs){
 	localStorage.setItem('questions',JSON.stringify(qs));
-}
-/*============================*/ 
-// console.log('localStorage====\n',localStorage.getItem("questions"));
+
+
 
 questions = JSON.parse(localStorage.getItem("questions"));
 var tmplSelect = _.template($("#box-slect").html());
@@ -99,3 +98,4 @@ $("#lodash-box").append(tmpl());
 });
 
 });
+}
